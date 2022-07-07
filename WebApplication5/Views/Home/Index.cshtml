@@ -1,0 +1,32 @@
+﻿@model List<WebApplication5.Models.empmodel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>******table data******</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>id</th>
+        <th>roll no</th>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.id</td>
+    <td>@item.RollNo</td>
+    <td>@item.Name</td>
+    <td>@item.email</td>
+    <td>@item.password</td>
+    <td> <a class="btn btn-danger" href="@Url.Action("delete","home",new { id=item.id})">DELETE</a></td>
+    <td> <a class="btn btn-warning" href="@Url.Action("details","home",new { id=item.id})">DETAILS</a></td>
+    <td> <a class="btn btn-success" href="@Url.Action("edit","home",new { id=item.id})">EDIT</a></td>
+
+
+</tr>
+    }
+
+</table>
+    
